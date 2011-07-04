@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>String Compare</title>
+<style>
+  .normalDiv, .redDiv {
+    float: left;
+    width: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 60px; 
+    border: 1px black solid;
+    margin: 2px;
+    padding: 4px; 
+  }
+  .redDiv {
+    background: red;
+  }
+  form {
+    display:block;
+    }
+</style>
+</head>
+
+<body>
+<h1>String Compare</h1>
+<table>
+<tr>
+<td>
+<%
+for i in range(shortLen):
+  if len(string1) <= i or len(string2) <= i:
+    background = 'redDiv'
+  elif cmp(string1[i], string2[i]) == 0:
+    background = 'normalDiv'
+  else:
+    background = 'redDiv'
+    
+  if len(string1) > i:
+    c1 = string1[i]
+  else:
+    c1 = ''
+  if len(string2) > i:
+    c2 = string2[i]    
+  else:
+    c2 = ''
+  tag = '<span class=%s>%i<br>%s<br>%s</span>' % (background, i, c1, c2)
+%>
+  <%= tag %>
+<%
+pass
+%>
+</td>
+</tr>
+<tr>
+<td>
+
+<form action="./compare">
+    <textarea name="s1" cols="50" rows="10"><%= string1 %></textarea>
+    <textarea name="s2" cols="50" rows="10"><%= string2 %></textarea><br>
+    <input type="submit" value=" Absenden ">
+   <input type="reset" value=" Abbrechen">
+</form>
+</td>
+</tr>
+</table>
+</body>
+</html>
