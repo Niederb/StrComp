@@ -1,48 +1,79 @@
 <html>
 <head>
 <title>String Compare</title>
-<style>
-  .normalDiv, .redDiv {
-    float: left;
-    width: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    height: 60px; 
-    border: 1px black solid;
-    margin: 2px;
-    padding: 4px; 
-  }
-  .redDiv {
-    background: red;
-  }
-  form {
-    display:block;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="../../style.css">
 </head>
-
 <body>
 <h1>String Compare</h1>
 <table>
 <tr>
-<td>
+<td class="layoutTd">
+
+<table width="100%">
+  <tr>
+    <td>&nbsp</td>
+    <td>String 1</td>
+    <td>String 2</td>
+  </tr>
+  <tr>
+    <td>Length</td>
+    <td><%= len(string1) %></td>
+    <td><%= len(string2) %></td>
+  </tr>
+  <tr>
+    <td>Equals</td>
+    <td colspan="2"><%= cmp(string1, string2) == 0 %></td>
+  </tr>
+  <tr>
+    <td>Equals ignore case</td>
+    <td colspan="2"><%= string1.lower() == string2.lower() %></td>
+  </tr>  
+  <tr>
+    <td>size of charset</td>
+    <td><%= len(charset1) %></td>
+    <td><%= len(charset2) %></td>
+  </tr>   
+  <tr>
+    <td>charset</td>
+    <td><%= str(charset1) %></td>
+    <td><%= str(charset2) %></td>
+  </tr>
+  <tr>
+    <td>Hamming distance</td>
+    <td colspan="2"><%= len(hamming) %></td>
+  </tr>
+  <tr>
+    <td>Hamming distance indizes</td>
+    <td colspan="2"><%= str(hamming) %></td>
+  </tr>    
+  <tr>
+    <td>Levenshtein distance</td>
+    <td colspan="2"><%= levenshtein %></td>
+  </tr>      
+</table>
+
+<form action="./compare">
+    <textarea name="s1" cols="50" rows="10"><%= string1 %></textarea>
+    <textarea name="s2" cols="50" rows="10"><%= string2 %></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+</td>
+
+<td class="layoutTd">
 <%
-for i in range(shortLen):
-  if len(string1) <= i or len(string2) <= i:
+for i in range(longLen):
+  if i in hamming:
     background = 'redDiv'
-  elif cmp(string1[i], string2[i]) == 0:
-    background = 'normalDiv'
   else:
-    background = 'redDiv'
-    
+    background = 'normalDiv'
+
+  c1 = ''    
   if len(string1) > i:
     c1 = string1[i]
-  else:
-    c1 = ''
+  
+  c2 = ''    
   if len(string2) > i:
-    c2 = string2[i]    
-  else:
-    c2 = ''
+    c2 = string2[i]
   tag = '<span class=%s>%i<br>%s<br>%s</span>' % (background, i, c1, c2)
 %>
   <%= tag %>
@@ -50,17 +81,7 @@ for i in range(shortLen):
 pass
 %>
 </td>
-</tr>
-<tr>
-<td>
 
-<form action="./compare">
-    <textarea name="s1" cols="50" rows="10"><%= string1 %></textarea>
-    <textarea name="s2" cols="50" rows="10"><%= string2 %></textarea><br>
-    <input type="submit" value=" Absenden ">
-   <input type="reset" value=" Abbrechen">
-</form>
-</td>
 </tr>
 </table>
 </body>
