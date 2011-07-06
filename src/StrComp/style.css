@@ -1,0 +1,31 @@
+h1 {
+  font-family:sans-serif;
+  font-size:30px;
+}
+
+.layoutTd {
+  border-style:none;
+  vertical-align:top;
+}
+
+td {
+  border: 1px black solid;
+  margin: 2px;
+  padding: 4px; 
+}
+  
+.normalDiv, .redDiv {
+  float: left;
+  width: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 60px; 
+  border: 1px black solid;
+  margin: 2px;
+  padding: 4px; 
+  vertical-align: top;
+}
+
+.redDiv {
+  background: red;
+}
