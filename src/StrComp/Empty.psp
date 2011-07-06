@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>String Compare</title>
+<link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+<body>
+<h1>String Compare</h1>
+<table>
+<tr>
+<td class="layoutTd">
+
+<form action="StringCompare/compare">
+    <textarea name="s1" cols="50" rows="10"><%= string1 %></textarea>
+    <textarea name="s2" cols="50" rows="10"><%= string2 %></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+</td>
+
+</tr>
+</table>
+</body>
+</html>
