@@ -1,3 +1,0 @@
-import pyinfo
-
-print pyinfo()
